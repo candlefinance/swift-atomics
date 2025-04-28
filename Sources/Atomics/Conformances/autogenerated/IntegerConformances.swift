@@ -27,10 +27,10 @@ extension Int8: AtomicValue {
   public struct AtomicRepresentation {
     public typealias Value = Int8
 
-    @usableFromInline
+    
     internal typealias _Storage = _AtomicInt8Storage
 
-    @usableFromInline
+    
     internal var _storage: _Storage
 
     @_transparent @_alwaysEmitIntoClient
@@ -252,10 +252,10 @@ extension Int16: AtomicValue {
   public struct AtomicRepresentation {
     public typealias Value = Int16
 
-    @usableFromInline
+    
     internal typealias _Storage = _AtomicInt16Storage
 
-    @usableFromInline
+    
     internal var _storage: _Storage
 
     @_transparent @_alwaysEmitIntoClient
@@ -477,10 +477,10 @@ extension Int32: AtomicValue {
   public struct AtomicRepresentation {
     public typealias Value = Int32
 
-    @usableFromInline
+    
     internal typealias _Storage = _AtomicInt32Storage
 
-    @usableFromInline
+    
     internal var _storage: _Storage
 
     @_transparent @_alwaysEmitIntoClient
@@ -702,10 +702,10 @@ extension Int64: AtomicValue {
   public struct AtomicRepresentation {
     public typealias Value = Int64
 
-    @usableFromInline
+    
     internal typealias _Storage = _AtomicInt64Storage
 
-    @usableFromInline
+    
     internal var _storage: _Storage
 
     @_transparent @_alwaysEmitIntoClient
@@ -927,10 +927,10 @@ extension UInt8: AtomicValue {
   public struct AtomicRepresentation {
     public typealias Value = UInt8
 
-    @usableFromInline
+    
     internal typealias _Storage = _AtomicInt8Storage
 
-    @usableFromInline
+    
     internal var _storage: _Storage
 
     @_transparent @_alwaysEmitIntoClient
@@ -1152,10 +1152,10 @@ extension UInt16: AtomicValue {
   public struct AtomicRepresentation {
     public typealias Value = UInt16
 
-    @usableFromInline
+    
     internal typealias _Storage = _AtomicInt16Storage
 
-    @usableFromInline
+    
     internal var _storage: _Storage
 
     @_transparent @_alwaysEmitIntoClient
@@ -1377,10 +1377,10 @@ extension UInt32: AtomicValue {
   public struct AtomicRepresentation {
     public typealias Value = UInt32
 
-    @usableFromInline
+    
     internal typealias _Storage = _AtomicInt32Storage
 
-    @usableFromInline
+    
     internal var _storage: _Storage
 
     @_transparent @_alwaysEmitIntoClient
@@ -1602,10 +1602,10 @@ extension UInt64: AtomicValue {
   public struct AtomicRepresentation {
     public typealias Value = UInt64
 
-    @usableFromInline
+    
     internal typealias _Storage = _AtomicInt64Storage
 
-    @usableFromInline
+    
     internal var _storage: _Storage
 
     @_transparent @_alwaysEmitIntoClient
@@ -1827,10 +1827,10 @@ extension Int: AtomicValue {
   public struct AtomicRepresentation {
     public typealias Value = Int
 
-    @usableFromInline
+    
     internal typealias _Storage = _AtomicIntStorage
 
-    @usableFromInline
+    
     internal var _storage: _Storage
 
     @_transparent @_alwaysEmitIntoClient
@@ -2052,10 +2052,10 @@ extension UInt: AtomicValue {
   public struct AtomicRepresentation {
     public typealias Value = UInt
 
-    @usableFromInline
+    
     internal typealias _Storage = _AtomicIntStorage
 
-    @usableFromInline
+    
     internal var _storage: _Storage
 
     @_transparent @_alwaysEmitIntoClient
@@ -2277,10 +2277,10 @@ extension DoubleWord: AtomicValue {
   public struct AtomicRepresentation {
     public typealias Value = DoubleWord
 
-    @usableFromInline
+    
     internal typealias _Storage = _AtomicDoubleWordStorage
 
-    @usableFromInline
+    
     internal var _storage: _Storage
 
     @_transparent @_alwaysEmitIntoClient

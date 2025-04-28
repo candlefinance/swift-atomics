@@ -20,18 +20,18 @@ public class ManagedAtomicLazyReference<Instance: AnyObject> {
   /// The value logically stored in an atomic lazy reference value.
   public typealias Value = Instance?
 
-  @usableFromInline
+  
   internal typealias _Rep = Optional<Unmanaged<Instance>>.AtomicRepresentation
 
   /// The atomic representation of the value stored inside.
   ///
   /// Warning: This ivar must only ever be accessed via `_ptr` after
   /// its initialization.
-  @usableFromInline
+  
   internal let _storage: _Rep
 
   /// Initializes a new managed atomic lazy reference with a nil value.
-  @inlinable
+  
   public init() {
     _storage = _Rep(nil)
   }

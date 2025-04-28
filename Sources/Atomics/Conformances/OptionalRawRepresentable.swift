@@ -32,10 +32,10 @@ where
 
   public typealias Value = Optional<Wrapped>
 
-  @usableFromInline
+  
   internal typealias _Storage = Wrapped.RawValue.AtomicOptionalRepresentation
 
-  @usableFromInline
+  
   internal var _storage: _Storage
 
   @_transparent @_alwaysEmitIntoClient
@@ -48,7 +48,7 @@ where
     _storage.dispose().flatMap(Wrapped.init(rawValue:))
   }
 
-  @usableFromInline
+  
   @_transparent @_alwaysEmitIntoClient
   static func _extract(
     _ ptr: UnsafeMutablePointer<Self>

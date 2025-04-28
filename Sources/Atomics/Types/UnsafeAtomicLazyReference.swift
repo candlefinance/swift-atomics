@@ -21,10 +21,10 @@ public struct UnsafeAtomicLazyReference<Instance: AnyObject> {
   /// The value logically stored in an atomic lazy reference value.
   public typealias Value = Instance?
 
-  @usableFromInline
+  
   internal typealias _Rep = Optional<Unmanaged<Instance>>.AtomicRepresentation
 
-  @usableFromInline
+  
   internal let _ptr: UnsafeMutablePointer<_Rep>
 
   /// Initialize an unsafe atomic lazy reference that uses the supplied memory
@@ -50,7 +50,7 @@ extension UnsafeAtomicLazyReference {
   /// The storage representation for an atomic lazy reference value.
   @frozen
   public struct Storage {
-    @usableFromInline
+    
     internal var _storage: _Rep
 
     /// Initialize a new atomic lazy reference storage value holding `nil`.
@@ -59,7 +59,7 @@ extension UnsafeAtomicLazyReference {
     /// (such as unpaired retains of strong references) that will need to be
     /// undone by calling `dispose()` before the storage value is
     /// deinitialized.
-    @inlinable @inline(__always)
+     @inline(__always)
     public init() {
       _storage = _Rep(nil)
     }
@@ -75,7 +75,7 @@ extension UnsafeAtomicLazyReference {
     ///
     /// Note: This is not an atomic operation. Logically, it implements a
     /// custom destructor for the underlying non-copiable value.
-    @inlinable @inline(__always)
+     @inline(__always)
     @discardableResult
     public mutating func dispose() -> Value {
       defer { _storage = _Rep(nil) }
@@ -92,7 +92,7 @@ extension UnsafeAtomicLazyReference {
   /// storage at the end of its lifetime.
   ///
   /// Note: This is not an atomic operation.
-  @inlinable
+  
   public static func create() -> Self {
     let ptr = UnsafeMutablePointer<Storage>.allocate(capacity: 1)
     ptr.initialize(to: Storage())
@@ -108,7 +108,7 @@ extension UnsafeAtomicLazyReference {
   /// - Returns: The last value stored in the storage representation before it
   ///   was destroyed.
   @discardableResult
-  @inlinable
+  
   public func destroy() -> Value {
     // `Storage` is layout-compatible with its only stored property.
     let address = UnsafeMutableRawPointer(_ptr)

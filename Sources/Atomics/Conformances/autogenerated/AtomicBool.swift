@@ -37,10 +37,10 @@ extension Bool: AtomicValue {
   public struct AtomicRepresentation {
     public typealias Value = Bool
 
-    @usableFromInline
+    
     internal typealias _Storage = _AtomicInt8Storage
 
-    @usableFromInline
+    
     internal var _storage: _Storage
 
     @_transparent @_alwaysEmitIntoClient
@@ -97,7 +97,7 @@ extension Int8 {
 extension UnsafeMutablePointer
 where Pointee == Bool.AtomicRepresentation {
   @_transparent @_alwaysEmitIntoClient
-  @usableFromInline
+  
   internal var _extract: UnsafeMutablePointer<Pointee._Storage> {
     // `Bool.AtomicRepresentation` is layout-compatible with
     // its only stored property.

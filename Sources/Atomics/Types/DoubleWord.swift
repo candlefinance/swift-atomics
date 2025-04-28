@@ -24,13 +24,13 @@ import Builtin
 @frozen
 @_alignment(8)
 public struct DoubleWord {
-  @usableFromInline
+  
   internal typealias _Builtin = Builtin.Int64
 
   public var first: UInt
   public var second: UInt
 
-  @inlinable @inline(__always)
+   @inline(__always)
   public init(first: UInt, second: UInt) {
     self.first = first
     self.second = second
@@ -40,13 +40,13 @@ public struct DoubleWord {
 @frozen
 @_alignment(16)
 public struct DoubleWord {
-  @usableFromInline
+  
   internal typealias _Builtin = Builtin.Int128
 
   public var first: UInt
   public var second: UInt
 
-  @inlinable @inline(__always)
+   @inline(__always)
   public init(first: UInt, second: UInt) {
     self.first = first
     self.second = second
@@ -83,7 +83,7 @@ extension DoubleWord {
   /// Initialize a new `DoubleWord` value given its high- and
   /// low-order words.
   @available(*, deprecated, renamed: "init(first:second:)")
-  @inlinable @inline(__always)
+   @inline(__always)
   public init(high: UInt, low: UInt) {
     self.init(first: low, second: high)
   }
@@ -91,7 +91,7 @@ extension DoubleWord {
   /// The most significant word in `self`, considering it as a single,
   /// wide integer value.
   @available(*, deprecated, renamed: "second")
-  @inlinable @inline(__always)
+   @inline(__always)
   public var high: UInt {
     get { second }
     set { second = newValue }
@@ -102,7 +102,7 @@ extension DoubleWord {
   /// `first` or `second`, depending on the endianness of the
   /// underlying architecture.
   @available(*, deprecated, renamed: "first")
-  @inlinable @inline(__always)
+   @inline(__always)
   public var low: UInt {
     get { first }
     set { first = newValue }
@@ -110,14 +110,14 @@ extension DoubleWord {
 }
 
 extension DoubleWord: Equatable {
-  @inlinable
+  
   public static func ==(left: Self, right: Self) -> Bool {
     left.first == right.first && left.second == right.second
   }
 }
 
 extension DoubleWord: Hashable {
-  @inlinable
+  
   public func hash(into hasher: inout Hasher) {
     hasher.combine(self.first)
     hasher.combine(self.second)

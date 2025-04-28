@@ -48,7 +48,7 @@ extension UnsafeMutablePointer where Pointee == _AtomicInt8Storage {
   @_semantics("atomics.requires_constant_orderings")
   @_alwaysEmitIntoClient
   @_transparent // Debug performance
-  @usableFromInline
+  
   internal func _atomicLoad(ordering: AtomicLoadOrdering) -> Int8 {
     switch ordering {
     case .relaxed:
@@ -67,7 +67,7 @@ extension UnsafeMutablePointer where Pointee == _AtomicInt8Storage {
   @_semantics("atomics.requires_constant_orderings")
   @_alwaysEmitIntoClient
   @_transparent // Debug performance
-  @usableFromInline
+  
   internal func _atomicStore(
     _ desired: Int8,
     ordering: AtomicStoreOrdering
@@ -330,7 +330,7 @@ extension UnsafeMutablePointer where Pointee == _AtomicInt8Storage {
   @_semantics("atomics.requires_constant_orderings")
   @_alwaysEmitIntoClient
   @_transparent // Debug performance
-  @usableFromInline
+  
   internal
   func _atomicLoadThenWrappingIncrement(
     by operand: Int8,
@@ -366,7 +366,7 @@ extension UnsafeMutablePointer where Pointee == _AtomicInt8Storage {
   @_semantics("atomics.requires_constant_orderings")
   @_alwaysEmitIntoClient
   @_transparent // Debug performance
-  @usableFromInline
+  
   internal
   func _atomicLoadThenWrappingDecrement(
     by operand: Int8,
@@ -399,7 +399,7 @@ extension UnsafeMutablePointer where Pointee == _AtomicInt8Storage {
   @_semantics("atomics.requires_constant_orderings")
   @_alwaysEmitIntoClient
   @_transparent // Debug performance
-  @usableFromInline
+  
   internal
   func _atomicLoadThenBitwiseAnd(
     with operand: Int8,
@@ -432,7 +432,7 @@ extension UnsafeMutablePointer where Pointee == _AtomicInt8Storage {
   @_semantics("atomics.requires_constant_orderings")
   @_alwaysEmitIntoClient
   @_transparent // Debug performance
-  @usableFromInline
+  
   internal
   func _atomicLoadThenBitwiseOr(
     with operand: Int8,
@@ -465,7 +465,7 @@ extension UnsafeMutablePointer where Pointee == _AtomicInt8Storage {
   @_semantics("atomics.requires_constant_orderings")
   @_alwaysEmitIntoClient
   @_transparent // Debug performance
-  @usableFromInline
+  
   internal
   func _atomicLoadThenBitwiseXor(
     with operand: Int8,
@@ -498,7 +498,7 @@ extension UnsafeMutablePointer where Pointee == _AtomicInt16Storage {
   @_semantics("atomics.requires_constant_orderings")
   @_alwaysEmitIntoClient
   @_transparent // Debug performance
-  @usableFromInline
+  
   internal func _atomicLoad(ordering: AtomicLoadOrdering) -> Int16 {
     switch ordering {
     case .relaxed:
@@ -517,7 +517,7 @@ extension UnsafeMutablePointer where Pointee == _AtomicInt16Storage {
   @_semantics("atomics.requires_constant_orderings")
   @_alwaysEmitIntoClient
   @_transparent // Debug performance
-  @usableFromInline
+  
   internal func _atomicStore(
     _ desired: Int16,
     ordering: AtomicStoreOrdering
@@ -780,7 +780,7 @@ extension UnsafeMutablePointer where Pointee == _AtomicInt16Storage {
   @_semantics("atomics.requires_constant_orderings")
   @_alwaysEmitIntoClient
   @_transparent // Debug performance
-  @usableFromInline
+  
   internal
   func _atomicLoadThenWrappingIncrement(
     by operand: Int16,
@@ -816,7 +816,7 @@ extension UnsafeMutablePointer where Pointee == _AtomicInt16Storage {
   @_semantics("atomics.requires_constant_orderings")
   @_alwaysEmitIntoClient
   @_transparent // Debug performance
-  @usableFromInline
+  
   internal
   func _atomicLoadThenWrappingDecrement(
     by operand: Int16,
@@ -849,7 +849,7 @@ extension UnsafeMutablePointer where Pointee == _AtomicInt16Storage {
   @_semantics("atomics.requires_constant_orderings")
   @_alwaysEmitIntoClient
   @_transparent // Debug performance
-  @usableFromInline
+  
   internal
   func _atomicLoadThenBitwiseAnd(
     with operand: Int16,
@@ -882,7 +882,7 @@ extension UnsafeMutablePointer where Pointee == _AtomicInt16Storage {
   @_semantics("atomics.requires_constant_orderings")
   @_alwaysEmitIntoClient
   @_transparent // Debug performance
-  @usableFromInline
+  
   internal
   func _atomicLoadThenBitwiseOr(
     with operand: Int16,
@@ -915,7 +915,7 @@ extension UnsafeMutablePointer where Pointee == _AtomicInt16Storage {
   @_semantics("atomics.requires_constant_orderings")
   @_alwaysEmitIntoClient
   @_transparent // Debug performance
-  @usableFromInline
+  
   internal
   func _atomicLoadThenBitwiseXor(
     with operand: Int16,
@@ -948,7 +948,7 @@ extension UnsafeMutablePointer where Pointee == _AtomicInt32Storage {
   @_semantics("atomics.requires_constant_orderings")
   @_alwaysEmitIntoClient
   @_transparent // Debug performance
-  @usableFromInline
+  
   internal func _atomicLoad(ordering: AtomicLoadOrdering) -> Int32 {
     switch ordering {
     case .relaxed:
@@ -967,7 +967,7 @@ extension UnsafeMutablePointer where Pointee == _AtomicInt32Storage {
   @_semantics("atomics.requires_constant_orderings")
   @_alwaysEmitIntoClient
   @_transparent // Debug performance
-  @usableFromInline
+  
   internal func _atomicStore(
     _ desired: Int32,
     ordering: AtomicStoreOrdering
@@ -1230,7 +1230,7 @@ extension UnsafeMutablePointer where Pointee == _AtomicInt32Storage {
   @_semantics("atomics.requires_constant_orderings")
   @_alwaysEmitIntoClient
   @_transparent // Debug performance
-  @usableFromInline
+  
   internal
   func _atomicLoadThenWrappingIncrement(
     by operand: Int32,
@@ -1266,7 +1266,7 @@ extension UnsafeMutablePointer where Pointee == _AtomicInt32Storage {
   @_semantics("atomics.requires_constant_orderings")
   @_alwaysEmitIntoClient
   @_transparent // Debug performance
-  @usableFromInline
+  
   internal
   func _atomicLoadThenWrappingDecrement(
     by operand: Int32,
@@ -1299,7 +1299,7 @@ extension UnsafeMutablePointer where Pointee == _AtomicInt32Storage {
   @_semantics("atomics.requires_constant_orderings")
   @_alwaysEmitIntoClient
   @_transparent // Debug performance
-  @usableFromInline
+  
   internal
   func _atomicLoadThenBitwiseAnd(
     with operand: Int32,
@@ -1332,7 +1332,7 @@ extension UnsafeMutablePointer where Pointee == _AtomicInt32Storage {
   @_semantics("atomics.requires_constant_orderings")
   @_alwaysEmitIntoClient
   @_transparent // Debug performance
-  @usableFromInline
+  
   internal
   func _atomicLoadThenBitwiseOr(
     with operand: Int32,
@@ -1365,7 +1365,7 @@ extension UnsafeMutablePointer where Pointee == _AtomicInt32Storage {
   @_semantics("atomics.requires_constant_orderings")
   @_alwaysEmitIntoClient
   @_transparent // Debug performance
-  @usableFromInline
+  
   internal
   func _atomicLoadThenBitwiseXor(
     with operand: Int32,
@@ -1398,7 +1398,7 @@ extension UnsafeMutablePointer where Pointee == _AtomicInt64Storage {
   @_semantics("atomics.requires_constant_orderings")
   @_alwaysEmitIntoClient
   @_transparent // Debug performance
-  @usableFromInline
+  
   internal func _atomicLoad(ordering: AtomicLoadOrdering) -> Int64 {
     switch ordering {
     case .relaxed:
@@ -1417,7 +1417,7 @@ extension UnsafeMutablePointer where Pointee == _AtomicInt64Storage {
   @_semantics("atomics.requires_constant_orderings")
   @_alwaysEmitIntoClient
   @_transparent // Debug performance
-  @usableFromInline
+  
   internal func _atomicStore(
     _ desired: Int64,
     ordering: AtomicStoreOrdering
@@ -1680,7 +1680,7 @@ extension UnsafeMutablePointer where Pointee == _AtomicInt64Storage {
   @_semantics("atomics.requires_constant_orderings")
   @_alwaysEmitIntoClient
   @_transparent // Debug performance
-  @usableFromInline
+  
   internal
   func _atomicLoadThenWrappingIncrement(
     by operand: Int64,
@@ -1716,7 +1716,7 @@ extension UnsafeMutablePointer where Pointee == _AtomicInt64Storage {
   @_semantics("atomics.requires_constant_orderings")
   @_alwaysEmitIntoClient
   @_transparent // Debug performance
-  @usableFromInline
+  
   internal
   func _atomicLoadThenWrappingDecrement(
     by operand: Int64,
@@ -1749,7 +1749,7 @@ extension UnsafeMutablePointer where Pointee == _AtomicInt64Storage {
   @_semantics("atomics.requires_constant_orderings")
   @_alwaysEmitIntoClient
   @_transparent // Debug performance
-  @usableFromInline
+  
   internal
   func _atomicLoadThenBitwiseAnd(
     with operand: Int64,
@@ -1782,7 +1782,7 @@ extension UnsafeMutablePointer where Pointee == _AtomicInt64Storage {
   @_semantics("atomics.requires_constant_orderings")
   @_alwaysEmitIntoClient
   @_transparent // Debug performance
-  @usableFromInline
+  
   internal
   func _atomicLoadThenBitwiseOr(
     with operand: Int64,
@@ -1815,7 +1815,7 @@ extension UnsafeMutablePointer where Pointee == _AtomicInt64Storage {
   @_semantics("atomics.requires_constant_orderings")
   @_alwaysEmitIntoClient
   @_transparent // Debug performance
-  @usableFromInline
+  
   internal
   func _atomicLoadThenBitwiseXor(
     with operand: Int64,
@@ -1848,7 +1848,7 @@ extension UnsafeMutablePointer where Pointee == _AtomicIntStorage {
   @_semantics("atomics.requires_constant_orderings")
   @_alwaysEmitIntoClient
   @_transparent // Debug performance
-  @usableFromInline
+  
   internal func _atomicLoad(ordering: AtomicLoadOrdering) -> Int {
     switch ordering {
     case .relaxed:
@@ -1867,7 +1867,7 @@ extension UnsafeMutablePointer where Pointee == _AtomicIntStorage {
   @_semantics("atomics.requires_constant_orderings")
   @_alwaysEmitIntoClient
   @_transparent // Debug performance
-  @usableFromInline
+  
   internal func _atomicStore(
     _ desired: Int,
     ordering: AtomicStoreOrdering
@@ -2130,7 +2130,7 @@ extension UnsafeMutablePointer where Pointee == _AtomicIntStorage {
   @_semantics("atomics.requires_constant_orderings")
   @_alwaysEmitIntoClient
   @_transparent // Debug performance
-  @usableFromInline
+  
   internal
   func _atomicLoadThenWrappingIncrement(
     by operand: Int,
@@ -2166,7 +2166,7 @@ extension UnsafeMutablePointer where Pointee == _AtomicIntStorage {
   @_semantics("atomics.requires_constant_orderings")
   @_alwaysEmitIntoClient
   @_transparent // Debug performance
-  @usableFromInline
+  
   internal
   func _atomicLoadThenWrappingDecrement(
     by operand: Int,
@@ -2199,7 +2199,7 @@ extension UnsafeMutablePointer where Pointee == _AtomicIntStorage {
   @_semantics("atomics.requires_constant_orderings")
   @_alwaysEmitIntoClient
   @_transparent // Debug performance
-  @usableFromInline
+  
   internal
   func _atomicLoadThenBitwiseAnd(
     with operand: Int,
@@ -2232,7 +2232,7 @@ extension UnsafeMutablePointer where Pointee == _AtomicIntStorage {
   @_semantics("atomics.requires_constant_orderings")
   @_alwaysEmitIntoClient
   @_transparent // Debug performance
-  @usableFromInline
+  
   internal
   func _atomicLoadThenBitwiseOr(
     with operand: Int,
@@ -2265,7 +2265,7 @@ extension UnsafeMutablePointer where Pointee == _AtomicIntStorage {
   @_semantics("atomics.requires_constant_orderings")
   @_alwaysEmitIntoClient
   @_transparent // Debug performance
-  @usableFromInline
+  
   internal
   func _atomicLoadThenBitwiseXor(
     with operand: Int,
@@ -2298,7 +2298,7 @@ extension UnsafeMutablePointer where Pointee == _AtomicDoubleWordStorage {
   @_semantics("atomics.requires_constant_orderings")
   @_alwaysEmitIntoClient
   @_transparent // Debug performance
-  @usableFromInline
+  
   internal func _atomicLoad(ordering: AtomicLoadOrdering) -> DoubleWord {
     switch ordering {
     case .relaxed:
@@ -2317,7 +2317,7 @@ extension UnsafeMutablePointer where Pointee == _AtomicDoubleWordStorage {
   @_semantics("atomics.requires_constant_orderings")
   @_alwaysEmitIntoClient
   @_transparent // Debug performance
-  @usableFromInline
+  
   internal func _atomicStore(
     _ desired: DoubleWord,
     ordering: AtomicStoreOrdering

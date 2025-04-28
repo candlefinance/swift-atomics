@@ -21,10 +21,10 @@ where Value.AtomicRepresentation.Value == Value {
   // another for `Value: AtomicReference`.)
 
   public typealias Storage = Value.AtomicRepresentation
-  @usableFromInline
+  
   internal typealias _Storage = Storage
 
-  @usableFromInline
+  
   internal let _ptr: UnsafeMutablePointer<Storage>
 
   /// Initialize an unsafe atomic value that uses the supplied memory location
@@ -50,7 +50,7 @@ where Value.AtomicRepresentation.Value == Value {
   /// storage at the end of its lifetime.
   ///
   /// Note: This is not an atomic operation.
-  @inlinable
+  
   public static func create(_ initialValue: __owned Value) -> Self {
     let ptr = UnsafeMutablePointer<Storage>.allocate(capacity: 1)
     ptr.initialize(to: Storage(initialValue))
@@ -65,7 +65,7 @@ where Value.AtomicRepresentation.Value == Value {
   /// - Returns: The last value stored in the storage representation before it
   ///   was destroyed.
   @discardableResult
-  @inlinable
+  
   public func destroy() -> Value {
     let result = _ptr.pointee.dispose()
     _ptr.deinitialize(count: 1)

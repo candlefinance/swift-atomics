@@ -48,11 +48,11 @@ internal func _atomicMemoryFence(
   }
 }
 
-@usableFromInline
+
 @frozen
 @_alignment(1)
 internal struct _AtomicInt8Storage {
-  @usableFromInline
+  
   internal var _value: Builtin.Int8
 
   @_alwaysEmitIntoClient @_transparent
@@ -565,11 +565,11 @@ extension UnsafeMutablePointer where Pointee == _AtomicInt8Storage {
   }
 }
 
-@usableFromInline
+
 @frozen
 @_alignment(2)
 internal struct _AtomicInt16Storage {
-  @usableFromInline
+  
   internal var _value: Builtin.Int16
 
   @_alwaysEmitIntoClient @_transparent
@@ -1082,11 +1082,11 @@ extension UnsafeMutablePointer where Pointee == _AtomicInt16Storage {
   }
 }
 
-@usableFromInline
+
 @frozen
 @_alignment(4)
 internal struct _AtomicInt32Storage {
-  @usableFromInline
+  
   internal var _value: Builtin.Int32
 
   @_alwaysEmitIntoClient @_transparent
@@ -1599,11 +1599,11 @@ extension UnsafeMutablePointer where Pointee == _AtomicInt32Storage {
   }
 }
 
-@usableFromInline
+
 @frozen
 @_alignment(8)
 internal struct _AtomicInt64Storage {
-  @usableFromInline
+  
   internal var _value: Builtin.Int64
 
   @_alwaysEmitIntoClient @_transparent
@@ -2117,11 +2117,11 @@ extension UnsafeMutablePointer where Pointee == _AtomicInt64Storage {
 }
 
 #if _pointerBitWidth(_64)
-@usableFromInline
+
 @frozen
 @_alignment(16)
 internal struct _AtomicInt128Storage {
-  @usableFromInline
+  
   internal var _value: Builtin.Int128
 
   @_alwaysEmitIntoClient @_transparent
@@ -2445,11 +2445,11 @@ extension UnsafeMutablePointer where Pointee == _AtomicInt128Storage {
 #endif
 
 #if _pointerBitWidth(_64)
-@usableFromInline internal typealias _AtomicIntStorage = _AtomicInt64Storage
-@usableFromInline internal typealias _AtomicDoubleWordStorage = _AtomicInt128Storage
+ internal typealias _AtomicIntStorage = _AtomicInt64Storage
+ internal typealias _AtomicDoubleWordStorage = _AtomicInt128Storage
 #elseif _pointerBitWidth(_32)
-@usableFromInline internal typealias _AtomicIntStorage = _AtomicInt32Storage
-@usableFromInline internal typealias _AtomicDoubleWordStorage = _AtomicInt64Storage
+ internal typealias _AtomicIntStorage = _AtomicInt32Storage
+ internal typealias _AtomicDoubleWordStorage = _AtomicInt64Storage
 #else
 #error("Unexpected pointer bit width")
 #endif

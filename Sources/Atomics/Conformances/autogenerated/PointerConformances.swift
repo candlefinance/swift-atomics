@@ -27,10 +27,10 @@ extension UnsafeRawPointer: AtomicValue {
   public struct AtomicRepresentation {
     public typealias Value = UnsafeRawPointer
 
-    @usableFromInline
+    
     internal typealias _Storage = _AtomicIntStorage
 
-    @usableFromInline
+    
     internal let _storage: _Storage
 
     @_transparent @_alwaysEmitIntoClient
@@ -55,7 +55,7 @@ extension UnsafeRawPointer: AtomicValue {
 
 extension UnsafeRawPointer.AtomicRepresentation {
   @_transparent @_alwaysEmitIntoClient
-  @usableFromInline
+  
   internal static func _extract(
     _ ptr: UnsafeMutablePointer<Self>
   ) -> UnsafeMutablePointer<_Storage> {
@@ -179,10 +179,10 @@ extension UnsafeMutableRawPointer: AtomicValue {
   public struct AtomicRepresentation {
     public typealias Value = UnsafeMutableRawPointer
 
-    @usableFromInline
+    
     internal typealias _Storage = _AtomicIntStorage
 
-    @usableFromInline
+    
     internal let _storage: _Storage
 
     @_transparent @_alwaysEmitIntoClient
@@ -207,7 +207,7 @@ extension UnsafeMutableRawPointer: AtomicValue {
 
 extension UnsafeMutableRawPointer.AtomicRepresentation {
   @_transparent @_alwaysEmitIntoClient
-  @usableFromInline
+  
   internal static func _extract(
     _ ptr: UnsafeMutablePointer<Self>
   ) -> UnsafeMutablePointer<_Storage> {
@@ -331,10 +331,10 @@ extension UnsafePointer: AtomicValue {
   public struct AtomicRepresentation {
     public typealias Value = UnsafePointer
 
-    @usableFromInline
+    
     internal typealias _Storage = _AtomicIntStorage
 
-    @usableFromInline
+    
     internal let _storage: _Storage
 
     @_transparent @_alwaysEmitIntoClient
@@ -359,7 +359,7 @@ extension UnsafePointer: AtomicValue {
 
 extension UnsafePointer.AtomicRepresentation {
   @_transparent @_alwaysEmitIntoClient
-  @usableFromInline
+  
   internal static func _extract(
     _ ptr: UnsafeMutablePointer<Self>
   ) -> UnsafeMutablePointer<_Storage> {
@@ -483,10 +483,10 @@ extension UnsafeMutablePointer: AtomicValue {
   public struct AtomicRepresentation {
     public typealias Value = UnsafeMutablePointer
 
-    @usableFromInline
+    
     internal typealias _Storage = _AtomicIntStorage
 
-    @usableFromInline
+    
     internal let _storage: _Storage
 
     @_transparent @_alwaysEmitIntoClient
@@ -511,7 +511,7 @@ extension UnsafeMutablePointer: AtomicValue {
 
 extension UnsafeMutablePointer.AtomicRepresentation {
   @_transparent @_alwaysEmitIntoClient
-  @usableFromInline
+  
   internal static func _extract(
     _ ptr: UnsafeMutablePointer<Self>
   ) -> UnsafeMutablePointer<_Storage> {
@@ -635,10 +635,10 @@ extension Unmanaged: AtomicValue {
   public struct AtomicRepresentation {
     public typealias Value = Unmanaged
 
-    @usableFromInline
+    
     internal typealias _Storage = _AtomicIntStorage
 
-    @usableFromInline
+    
     internal let _storage: _Storage
 
     @_transparent @_alwaysEmitIntoClient
@@ -663,7 +663,7 @@ extension Unmanaged: AtomicValue {
 
 extension Unmanaged.AtomicRepresentation {
   @_transparent @_alwaysEmitIntoClient
-  @usableFromInline
+  
   internal static func _extract(
     _ ptr: UnsafeMutablePointer<Self>
   ) -> UnsafeMutablePointer<_Storage> {
@@ -789,10 +789,10 @@ extension UnsafeRawPointer: AtomicOptionalWrappable {
   public struct AtomicOptionalRepresentation {
     public typealias Value = UnsafeRawPointer?
 
-    @usableFromInline
+    
     internal typealias _Storage = _AtomicIntStorage
 
-    @usableFromInline
+    
     internal let _storage: _Storage
 
     @inline(__always) @_alwaysEmitIntoClient
@@ -817,7 +817,7 @@ extension UnsafeRawPointer: AtomicOptionalWrappable {
 
 extension UnsafeRawPointer.AtomicOptionalRepresentation {
   @_transparent @_alwaysEmitIntoClient
-  @usableFromInline
+  
   internal static func _extract(
     _ ptr: UnsafeMutablePointer<Self>
   ) -> UnsafeMutablePointer<_Storage> {
@@ -939,10 +939,10 @@ extension UnsafeMutableRawPointer: AtomicOptionalWrappable {
   public struct AtomicOptionalRepresentation {
     public typealias Value = UnsafeMutableRawPointer?
 
-    @usableFromInline
+    
     internal typealias _Storage = _AtomicIntStorage
 
-    @usableFromInline
+    
     internal let _storage: _Storage
 
     @inline(__always) @_alwaysEmitIntoClient
@@ -967,7 +967,7 @@ extension UnsafeMutableRawPointer: AtomicOptionalWrappable {
 
 extension UnsafeMutableRawPointer.AtomicOptionalRepresentation {
   @_transparent @_alwaysEmitIntoClient
-  @usableFromInline
+  
   internal static func _extract(
     _ ptr: UnsafeMutablePointer<Self>
   ) -> UnsafeMutablePointer<_Storage> {
@@ -1089,10 +1089,10 @@ extension UnsafePointer: AtomicOptionalWrappable {
   public struct AtomicOptionalRepresentation {
     public typealias Value = UnsafePointer?
 
-    @usableFromInline
+    
     internal typealias _Storage = _AtomicIntStorage
 
-    @usableFromInline
+    
     internal let _storage: _Storage
 
     @inline(__always) @_alwaysEmitIntoClient
@@ -1117,7 +1117,7 @@ extension UnsafePointer: AtomicOptionalWrappable {
 
 extension UnsafePointer.AtomicOptionalRepresentation {
   @_transparent @_alwaysEmitIntoClient
-  @usableFromInline
+  
   internal static func _extract(
     _ ptr: UnsafeMutablePointer<Self>
   ) -> UnsafeMutablePointer<_Storage> {
@@ -1239,10 +1239,10 @@ extension UnsafeMutablePointer: AtomicOptionalWrappable {
   public struct AtomicOptionalRepresentation {
     public typealias Value = UnsafeMutablePointer?
 
-    @usableFromInline
+    
     internal typealias _Storage = _AtomicIntStorage
 
-    @usableFromInline
+    
     internal let _storage: _Storage
 
     @inline(__always) @_alwaysEmitIntoClient
@@ -1267,7 +1267,7 @@ extension UnsafeMutablePointer: AtomicOptionalWrappable {
 
 extension UnsafeMutablePointer.AtomicOptionalRepresentation {
   @_transparent @_alwaysEmitIntoClient
-  @usableFromInline
+  
   internal static func _extract(
     _ ptr: UnsafeMutablePointer<Self>
   ) -> UnsafeMutablePointer<_Storage> {
@@ -1389,10 +1389,10 @@ extension Unmanaged: AtomicOptionalWrappable {
   public struct AtomicOptionalRepresentation {
     public typealias Value = Unmanaged?
 
-    @usableFromInline
+    
     internal typealias _Storage = _AtomicIntStorage
 
-    @usableFromInline
+    
     internal let _storage: _Storage
 
     @inline(__always) @_alwaysEmitIntoClient
@@ -1417,7 +1417,7 @@ extension Unmanaged: AtomicOptionalWrappable {
 
 extension Unmanaged.AtomicOptionalRepresentation {
   @_transparent @_alwaysEmitIntoClient
-  @usableFromInline
+  
   internal static func _extract(
     _ ptr: UnsafeMutablePointer<Self>
   ) -> UnsafeMutablePointer<_Storage> {

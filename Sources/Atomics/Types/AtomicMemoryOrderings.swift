@@ -15,11 +15,11 @@
 public struct AtomicLoadOrdering {
   // This struct works like a non-frozen enum whose cases aren't reorderable.
 
-  @usableFromInline
+  
   internal var _rawValue: Int
 
   @_semantics("constant_evaluable")
-  @inlinable @_transparent // Debug performance
+   @_transparent // Debug performance
   internal init(_rawValue: Int) {
     self._rawValue = _rawValue
   }
@@ -74,7 +74,7 @@ extension AtomicLoadOrdering: Equatable {
 }
 
 extension AtomicLoadOrdering: Hashable {
-  @inlinable
+  
   public func hash(into hasher: inout Hasher) {
     hasher.combine(_rawValue)
   }
@@ -98,11 +98,11 @@ extension AtomicLoadOrdering: CustomStringConvertible {
 public struct AtomicStoreOrdering {
   // This struct works like a non-frozen enum whose cases aren't reorderable.
 
-  @usableFromInline
+  
   internal var _rawValue: Int
 
   @_semantics("constant_evaluable")
-  @inlinable @_transparent // Debug performance
+   @_transparent // Debug performance
   internal init(_rawValue: Int) {
     self._rawValue = _rawValue
   }
@@ -157,7 +157,7 @@ extension AtomicStoreOrdering: Equatable {
 }
 
 extension AtomicStoreOrdering: Hashable {
-  @inlinable
+  
   public func hash(into hasher: inout Hasher) {
     hasher.combine(_rawValue)
   }
@@ -182,11 +182,11 @@ extension AtomicStoreOrdering: CustomStringConvertible {
 public struct AtomicUpdateOrdering {
   // This struct works like a non-frozen enum whose cases aren't reorderable.
 
-  @usableFromInline
+  
   internal var _rawValue: Int
 
   @_semantics("constant_evaluable")
-  @inlinable @_transparent // Debug performance
+   @_transparent // Debug performance
   internal init(_rawValue: Int) {
     self._rawValue = _rawValue
   }
@@ -266,7 +266,7 @@ extension AtomicUpdateOrdering: Equatable {
 }
 
 extension AtomicUpdateOrdering: Hashable {
-  @inlinable
+  
   public func hash(into hasher: inout Hasher) {
     hasher.combine(_rawValue)
   }

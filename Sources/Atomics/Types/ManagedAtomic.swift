@@ -19,14 +19,14 @@ where Value.AtomicRepresentation.Value == Value {
   // (We'd need one set of implementations for the type equality condition,
   // and another for `Value: AtomicReference`.)
 
-  @usableFromInline
+  
   internal typealias _Storage = Value.AtomicRepresentation
 
   /// The atomic representation of the value stored inside.
   ///
   /// Warning: This ivar must only ever be accessed via `_ptr` after
   /// its initialization.
-  @usableFromInline
+  
   internal var __storage: _Storage
 
   /// Initialize a new managed atomic instance holding the specified initial

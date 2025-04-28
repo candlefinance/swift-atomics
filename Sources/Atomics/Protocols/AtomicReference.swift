@@ -73,7 +73,7 @@ where
 /// The maximum number of other threads that can start accessing a
 /// strong reference before an in-flight update needs to cancel and
 /// retry.
-@inlinable @inline(__always)
+ @inline(__always)
 internal var _concurrencyWindow: Int { 20 }
 
 extension DoubleWord {
@@ -137,19 +137,19 @@ extension Optional where Wrapped == AnyObject {
 }
 
 extension UnsafeMutablePointer where Pointee == _AtomicReferenceStorage {
-  @inlinable @inline(__always)
+   @inline(__always)
   internal var _extract: UnsafeMutablePointer<DoubleWord.AtomicRepresentation> {
     UnsafeMutableRawPointer(self)
       .assumingMemoryBound(to: DoubleWord.AtomicRepresentation.self)
   }
 }
 
-@usableFromInline
+
 internal struct _AtomicReferenceStorage {
   internal typealias Storage = DoubleWord.AtomicRepresentation
   internal var _storage: Storage
 
-  @usableFromInline
+  
   internal init(_ value: __owned AnyObject?) {
     let dword = DoubleWord(
       _raw: Unmanaged.passRetained(value)?.toOpaque(),
@@ -158,7 +158,7 @@ internal struct _AtomicReferenceStorage {
     _storage = Storage(dword)
   }
 
-  @usableFromInline
+  
   internal func dispose() -> AnyObject? {
     let value = _storage.dispose()
     precondition(value._readers == 0,
@@ -226,7 +226,7 @@ internal struct _AtomicReferenceStorage {
     return result
   }
 
-  @usableFromInline
+  
   internal static func atomicLoad(
     at pointer: UnsafeMutablePointer<Self>
   ) -> AnyObject? {
@@ -301,7 +301,7 @@ internal struct _AtomicReferenceStorage {
     }
   }
 
-  @usableFromInline
+  
   internal static func atomicExchange(
     _ desired: __owned AnyObject?,
     at pointer: UnsafeMutablePointer<Self>
@@ -315,7 +315,7 @@ internal struct _AtomicReferenceStorage {
     return original
   }
 
-  @usableFromInline
+  
   internal static func atomicCompareExchange(
     expected: AnyObject?,
     desired: __owned AnyObject?,
@@ -340,22 +340,22 @@ internal struct _AtomicReferenceStorage {
 
 @frozen
 public struct AtomicReferenceStorage<Value: AnyObject> {
-  @usableFromInline
+  
   internal var _storage: _AtomicReferenceStorage
 
-  @inlinable
+  
   public init(_ value: __owned Value) {
     _storage = .init(value)
   }
 
-  @inlinable
+  
   public func dispose() -> Value {
     return unsafeDowncast(_storage.dispose()!, to: Value.self)
   }
 }
 
 extension AtomicReferenceStorage {
-  @inlinable @inline(__always)
+   @inline(__always)
   @_alwaysEmitIntoClient
   static func _extract(
     _ ptr: UnsafeMutablePointer<Self>
@@ -367,7 +367,7 @@ extension AtomicReferenceStorage {
 }
 
 extension AtomicReferenceStorage: AtomicStorage {
-  @inlinable @inline(__always)
+   @inline(__always)
   @_alwaysEmitIntoClient
   @_semantics("atomics.requires_constant_orderings")
   public static func atomicLoad(
@@ -379,7 +379,7 @@ extension AtomicReferenceStorage: AtomicStorage {
     return unsafeDowncast(result!, to: Value.self)
   }
 
-  @inlinable @inline(__always)
+   @inline(__always)
   @_alwaysEmitIntoClient
   @_semantics("atomics.requires_constant_orderings")
   public static func atomicStore(
@@ -393,7 +393,7 @@ extension AtomicReferenceStorage: AtomicStorage {
       at: _extract(pointer))
   }
 
-  @inlinable @inline(__always)
+   @inline(__always)
   @_alwaysEmitIntoClient
   @_semantics("atomics.requires_constant_orderings")
   public static func atomicExchange(
@@ -408,7 +408,7 @@ extension AtomicReferenceStorage: AtomicStorage {
     return unsafeDowncast(result!, to: Value.self)
   }
 
-  @inlinable @inline(__always)
+   @inline(__always)
   @_alwaysEmitIntoClient
   @_semantics("atomics.requires_constant_orderings")
   public static func atomicCompareExchange(
@@ -425,7 +425,7 @@ extension AtomicReferenceStorage: AtomicStorage {
     return (result.exchanged, unsafeDowncast(result.original!, to: Value.self))
   }
 
-  @inlinable @inline(__always)
+   @inline(__always)
   @_alwaysEmitIntoClient
   @_semantics("atomics.requires_constant_orderings")
   public static func atomicCompareExchange(
@@ -443,7 +443,7 @@ extension AtomicReferenceStorage: AtomicStorage {
     return (result.exchanged, unsafeDowncast(result.original!, to: Value.self))
   }
 
-  @inlinable @inline(__always)
+   @inline(__always)
   @_alwaysEmitIntoClient
   @_semantics("atomics.requires_constant_orderings")
   public static func atomicWeakCompareExchange(
@@ -464,15 +464,15 @@ extension AtomicReferenceStorage: AtomicStorage {
 
 @frozen
 public struct AtomicOptionalReferenceStorage<Instance: AnyObject> {
-  @usableFromInline
+  
   internal var _storage: _AtomicReferenceStorage
 
-  @inlinable
+  
   public init(_ value: __owned Instance?) {
     _storage = .init(value)
   }
 
-  @inlinable
+  
   public func dispose() -> Instance? {
     guard let value = _storage.dispose() else { return nil }
     return unsafeDowncast(value, to: Instance.self)
@@ -480,7 +480,7 @@ public struct AtomicOptionalReferenceStorage<Instance: AnyObject> {
 }
 
 extension AtomicOptionalReferenceStorage {
-  @inlinable @inline(__always)
+   @inline(__always)
   @_alwaysEmitIntoClient
   static func _extract(
     _ ptr: UnsafeMutablePointer<Self>
@@ -494,7 +494,7 @@ extension AtomicOptionalReferenceStorage {
 extension AtomicOptionalReferenceStorage: AtomicStorage {
   public typealias Value = Instance?
 
-  @inlinable @inline(__always)
+   @inline(__always)
   @_alwaysEmitIntoClient
   @_semantics("atomics.requires_constant_orderings")
   public static func atomicLoad(
@@ -507,7 +507,7 @@ extension AtomicOptionalReferenceStorage: AtomicStorage {
     return unsafeDowncast(r, to: Instance.self)
   }
 
-  @inlinable @inline(__always)
+   @inline(__always)
   @_alwaysEmitIntoClient
   @_semantics("atomics.requires_constant_orderings")
   public static func atomicStore(
@@ -521,7 +521,7 @@ extension AtomicOptionalReferenceStorage: AtomicStorage {
       at: _extract(pointer))
   }
 
-  @inlinable @inline(__always)
+   @inline(__always)
   @_alwaysEmitIntoClient
   @_semantics("atomics.requires_constant_orderings")
   public static func atomicExchange(
@@ -537,7 +537,7 @@ extension AtomicOptionalReferenceStorage: AtomicStorage {
     return unsafeDowncast(r, to: Instance.self)
   }
 
-  @inlinable @inline(__always)
+   @inline(__always)
   @_alwaysEmitIntoClient
   @_semantics("atomics.requires_constant_orderings")
   public static func atomicCompareExchange(
@@ -555,7 +555,7 @@ extension AtomicOptionalReferenceStorage: AtomicStorage {
     return (result.exchanged, unsafeDowncast(original, to: Instance.self))
   }
 
-  @inlinable @inline(__always)
+   @inline(__always)
   @_alwaysEmitIntoClient
   @_semantics("atomics.requires_constant_orderings")
   public static func atomicCompareExchange(
@@ -574,7 +574,7 @@ extension AtomicOptionalReferenceStorage: AtomicStorage {
     return (result.exchanged, unsafeDowncast(original, to: Instance.self))
   }
 
-  @inlinable @inline(__always)
+   @inline(__always)
   @_alwaysEmitIntoClient
   @_semantics("atomics.requires_constant_orderings")
   public static func atomicWeakCompareExchange(

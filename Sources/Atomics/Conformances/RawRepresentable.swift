@@ -28,10 +28,10 @@ where
   Value.RawValue: AtomicValue,
   Value.RawValue.AtomicRepresentation.Value == Value.RawValue
 {
-  @usableFromInline
+  
   internal typealias _Storage = Value.RawValue.AtomicRepresentation
 
-  @usableFromInline
+  
   internal var _storage: _Storage
 
   @_transparent @_alwaysEmitIntoClient
